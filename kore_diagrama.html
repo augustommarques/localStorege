@@ -1,0 +1,836 @@
+<html lang="en" class=" webkit chrome win js">
+
+<head>
+
+    <!-- ensure proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- disable user zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- cache bust -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="kore_builder_version" content="v1569630927499">
+
+    <!-- title -->
+
+    <link rel="stylesheet" href="https://bots.kore.ai/botbuilder/css/modules/mod-1569630927499.min.css">
+
+</head>
+
+<body>
+    <div class=" flowTaskForm ">
+
+        <fieldset class="dialogFieldset">
+
+            <div class="col-xs-12 form-group flowTaskBlock">
+                <div class="flowTaskConnectionBlock ps-container ps-theme-default ps-active-x ps-active-y" perfect-scroll="" data-ps-id="5bf9c513-ba03-4869-1cf9-35b3a5b637a6">
+                    <!--  'isFirstNode firstNodeColor': item.uId === firstNodeUId, -->
+                    <div class="connectionInfoPopover" style="left: 1820px; top: 369.5px; display: none;">
+
+                        <div class="dropdown pull-right addConnectionDropdown addConnectionDropdown-connection">
+                            <a href="#" class="addConnectionBtn dropdown-toggle" data-toggle="dropdown" ng-style="{'border-color': tempConnection.color,'background-color': tempConnection.color}" ng-click="addInBetweenNode($event)">
+                                <i title="Add node" class="fa fa-plus"></i>
+                            </a>
+                            <!-- ngIf: selectedConnection && selectedConnection.source -->
+                            <ul ng-if="selectedConnection &amp;&amp; selectedConnection.source" ng-init="item=selectedConnection.source" class="dropdown-menu commonEle ng-scope" data-id="item.uId" style="">
+                                <!-- ngRepeat: configurableElement in configurableElements -->
+                                <li class="eleType ng-scope" ng-hide="configurableElement.disbleAdd || configurableElement.type==='agentTransfer'" type="message" ng-repeat="configurableElement in configurableElements" ng-click="onNodeClicked($event, configurableElement.type,item)">
+                                    <div class="eleTypeDropdown dropdown">
+                                        <div class="eleTypeInfo dropdown-toggle" data-toggle="dropdown">
+                                            <span class="eleName ng-binding">Message</span>
+                                            <i class="fa fa-angle-right  moreOptions"></i>
+                                        </div>
+                                        <!-- ngIf: item.menuFocused -->
+                                    </div>
+                                </li>
+                                <!-- end ngRepeat: configurableElement in configurableElements -->
+                                <li class="eleType ng-scope" ng-hide="configurableElement.disbleAdd || configurableElement.type==='agentTransfer'" type="dialogAct" ng-repeat="configurableElement in configurableElements" ng-click="onNodeClicked($event, configurableElement.type,item)">
+                                    <div class="eleTypeDropdown dropdown">
+                                        <div class="eleTypeInfo dropdown-toggle" data-toggle="dropdown">
+                                            <span class="eleName ng-binding">Confirmation</span>
+                                            <i class="fa fa-angle-right  moreOptions"></i>
+                                        </div>
+                                        <!-- ngIf: item.menuFocused -->
+                                    </div>
+                                </li>
+                                <!-- end ngRepeat: configurableElement in configurableElements -->
+                                <li class="eleType ng-scope" ng-hide="configurableElement.disbleAdd || configurableElement.type==='agentTransfer'" type="entity" ng-repeat="configurableElement in configurableElements" ng-click="onNodeClicked($event, configurableElement.type,item)">
+                                    <div class="eleTypeDropdown dropdown">
+                                        <div class="eleTypeInfo dropdown-toggle" data-toggle="dropdown">
+                                            <span class="eleName ng-binding">Entity</span>
+                                            <i class="fa fa-angle-right  moreOptions"></i>
+                                        </div>
+                                        <!-- ngIf: item.menuFocused -->
+                                    </div>
+                                </li>
+                                <!-- end ngRepeat: configurableElement in configurableElements -->
+                                <li class="eleType ng-scope" ng-hide="configurableElement.disbleAdd || configurableElement.type==='agentTransfer'" type="service" ng-repeat="configurableElement in configurableElements" ng-click="onNodeClicked($event, configurableElement.type,item)">
+                                    <div class="eleTypeDropdown dropdown">
+                                        <div class="eleTypeInfo dropdown-toggle" data-toggle="dropdown">
+                                            <span class="eleName ng-binding">Service</span>
+                                            <i class="fa fa-angle-right  moreOptions"></i>
+                                        </div>
+                                        <!-- ngIf: item.menuFocused -->
+                                    </div>
+                                </li>
+                                <!-- end ngRepeat: configurableElement in configurableElements -->
+                                <li class="eleType ng-scope" ng-hide="configurableElement.disbleAdd || configurableElement.type==='agentTransfer'" type="script" ng-repeat="configurableElement in configurableElements" ng-click="onNodeClicked($event, configurableElement.type,item)">
+                                    <div class="eleTypeDropdown dropdown">
+                                        <div class="eleTypeInfo dropdown-toggle" data-toggle="dropdown">
+                                            <span class="eleName ng-binding">Script</span>
+                                            <i class="fa fa-angle-right  moreOptions"></i>
+                                        </div>
+                                        <!-- ngIf: item.menuFocused -->
+                                    </div>
+                                </li>
+                                <!-- end ngRepeat: configurableElement in configurableElements -->
+                                <li class="eleType ng-scope" ng-hide="configurableElement.disbleAdd || configurableElement.type==='agentTransfer'" type="subDialog" ng-repeat="configurableElement in configurableElements" ng-click="onNodeClicked($event, configurableElement.type,item)">
+                                    <div class="eleTypeDropdown dropdown">
+                                        <div class="eleTypeInfo dropdown-toggle" data-toggle="dropdown">
+                                            <span class="eleName ng-binding">Dialog Task</span>
+                                            <i class="fa fa-angle-right  moreOptions"></i>
+                                        </div>
+                                        <!-- ngIf: item.menuFocused -->
+                                    </div>
+                                </li>
+                                <!-- end ngRepeat: configurableElement in configurableElements -->
+                                <li class="eleType ng-scope" ng-hide="configurableElement.disbleAdd || configurableElement.type==='agentTransfer'" type="SDKWebHook" ng-repeat="configurableElement in configurableElements" ng-click="onNodeClicked($event, configurableElement.type,item)">
+                                    <div class="eleTypeDropdown dropdown">
+                                        <div class="eleTypeInfo dropdown-toggle" data-toggle="dropdown">
+                                            <span class="eleName ng-binding">Webhook</span>
+                                            <i class="fa fa-angle-right  moreOptions"></i>
+                                        </div>
+                                        <!-- ngIf: item.menuFocused -->
+                                    </div>
+                                </li>
+                                <!-- end ngRepeat: configurableElement in configurableElements -->
+                                <li class="eleType ng-scope" ng-hide="configurableElement.disbleAdd || configurableElement.type==='agentTransfer'" type="intent" ng-repeat="configurableElement in configurableElements" ng-click="onNodeClicked($event, configurableElement.type,item)">
+                                    <div class="eleTypeDropdown dropdown">
+                                        <div class="eleTypeInfo dropdown-toggle" data-toggle="dropdown">
+                                            <span class="eleName ng-binding">Intent</span>
+                                            <i class="fa fa-angle-right  moreOptions"></i>
+                                        </div>
+                                        <!-- ngIf: item.menuFocused -->
+                                    </div>
+                                </li>
+                                <!-- end ngRepeat: configurableElement in configurableElements -->
+                                <li class="eleType ng-scope ng-hide" ng-hide="configurableElement.disbleAdd || configurableElement.type==='agentTransfer'" type="agentTransfer" ng-repeat="configurableElement in configurableElements" ng-click="onNodeClicked($event, configurableElement.type,item)">
+                                    <div class="eleTypeDropdown dropdown">
+                                        <div class="eleTypeInfo dropdown-toggle" data-toggle="dropdown">
+                                            <span class="eleName ng-binding">Agent transfer</span>
+                                            <i class="fa fa-angle-right  moreOptions"></i>
+                                        </div>
+                                        <!-- ngIf: item.menuFocused -->
+                                    </div>
+                                </li>
+                                <!-- end ngRepeat: configurableElement in configurableElements -->
+                            </ul>
+                            <!-- end ngIf: selectedConnection && selectedConnection.source -->
+
+                        </div>
+                    </div>
+                    <!-- ngRepeat: item in objList -->
+                    <div class="draggableEle ng-scope ui-draggable ui-draggable-handle" ng-style="{&quot;border-color&quot;:&quot;#57187f&quot;}" ng-repeat="item in objList" ng-class="{'draggableHide':item.hide, 'nodeSelected': item.isSelected}" ng-click="nodeClick($event,item.uId)" style="border-color: rgb(87, 24, 127); top: 52px; left: 9px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="dragEleConn" data-id="intent0" data-type="intent">
+                            <div class="nodeTypeName" ng-style="{&quot;border-color&quot;:&quot;#57187f&quot;,&quot;background-color&quot;:&quot;#57187f&quot;}" style="border-color: rgb(87, 24, 127); background-color: rgb(87, 24, 127);">
+                                <span class="nodeTypeLbl ng-binding">USER INTENT</span>
+                                <i class="fa fa-caret-down nodeTypeLblArrow"></i>
+                            </div>
+                            <span class="configure" ng-click="onConfigure(item.uId)">
+                                    <i class="fa fa-gear"></i>
+                                </span>
+                            <!-- ngIf: !(item.type==='agentTransfer') --><span class="connectionPlug ng-scope" ng-if="!(item.type==='agentTransfer')" ng-click="onConfigure(item.uId, 'connection')">
+                                    <i class="fa fa-plug"></i>
+                                </span>
+                            <!-- end ngIf: !(item.type==='agentTransfer') -->
+                            <!-- ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) -->
+                            <span class="nodeMap" ng-click="tracePathClick(item.uId)">
+                                    <i class="fa fa-sitemap"></i>
+                                </span>
+                            <!-- remove this comment if hide dialog act node connections
+                                <span class="addDummyConnection" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer'|| (item.flowTaskId && item.flowTaskId.length > 0))">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span> -->
+                            <!-- ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') -->
+                            <span class="objName ng-binding" ng-bind-html="highlight(item.uId, item, searchText)">Assign Task</span>
+                            <!-- ngIf: item.desc && item.desc.length > 0 --><span class="objDesc ng-binding ng-scope" ng-if="item.desc &amp;&amp; item.desc.length > 0">You can assign task.</span>
+                            <!-- end ngIf: item.desc && item.desc.length > 0 -->
+                            <!-- ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="marginTop10">
+                                <!-- ngRepeat: connect in item.connections -->
+                                <div class="connectionInfo ng-scope isFirst" ng-class="{'isFirst': $index === 0}" ng-repeat="connect in item.connections">
+                                    <div class="colorBlock ng-binding" ng-style="{'background-color': connect.color}" style="background-color: rgb(41, 157, 142);">1</div>
+                                    <div class="connCondition ng-binding" ng-class="{'isDummyConn': connect.targetId === ''}" title="Default goto GetAllWorkspaces ">Default goto GetAllWorkspaces </div>
+                                    <!-- ngIf: connect.targetId === '' -->
+                                    <i class="fa fa-caret-up connTooltipArrow"></i>
+                                </div>
+                                <!-- end ngRepeat: connect in item.connections -->
+                            </div>
+
+                            <!-- ngIf: displayMode !== 'view' --><span class="remove ng-scope" ng-click="onRemove(item.uId)" ng-if="displayMode !== 'view'">
+                                    <i class="fa fa-trash"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' -->
+                        </div>
+                        <!-- ngRepeat: tempConnection in item.tempConnections -->
+                    </div>
+                    <!-- end ngRepeat: item in objList -->
+                    <div class="draggableEle ng-scope ui-draggable ui-draggable-handle" ng-style="{&quot;border-color&quot;:&quot;#4a4a4a&quot;}" ng-repeat="item in objList" ng-class="{'draggableHide':item.hide, 'nodeSelected': item.isSelected}" ng-click="nodeClick($event,item.uId)" style="border-color: rgb(74, 74, 74); top: 306px; left: 675px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="dragEleConn" data-id="service2" data-type="service">
+                            <div class="nodeTypeName" ng-style="{&quot;border-color&quot;:&quot;#4a4a4a&quot;,&quot;background-color&quot;:&quot;#4a4a4a&quot;}" style="border-color: rgb(74, 74, 74); background-color: rgb(74, 74, 74);">
+                                <span class="nodeTypeLbl ng-binding">SERVICE</span>
+                                <i class="fa fa-caret-down nodeTypeLblArrow"></i>
+                            </div>
+                            <span class="configure" ng-click="onConfigure(item.uId)">
+                                    <i class="fa fa-gear"></i>
+                                </span>
+                            <!-- ngIf: !(item.type==='agentTransfer') --><span class="connectionPlug ng-scope" ng-if="!(item.type==='agentTransfer')" ng-click="onConfigure(item.uId, 'connection')">
+                                    <i class="fa fa-plug"></i>
+                                </span>
+                            <!-- end ngIf: !(item.type==='agentTransfer') -->
+                            <!-- ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) -->
+                            <span class="nodeMap" ng-click="tracePathClick(item.uId)">
+                                    <i class="fa fa-sitemap"></i>
+                                </span>
+                            <!-- remove this comment if hide dialog act node connections
+                                <span class="addDummyConnection" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer'|| (item.flowTaskId && item.flowTaskId.length > 0))">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span> -->
+                            <!-- ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') --><span class="addDummyConnection ng-scope" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' &amp;&amp; !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer')">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') -->
+                            <span class="objName ng-binding" ng-bind-html="highlight(item.uId, item, searchText)">GetAllUsers</span>
+                            <!-- ngIf: item.desc && item.desc.length > 0 -->
+                            <!-- ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="marginTop10">
+                                <!-- ngRepeat: connect in item.connections -->
+                                <div class="connectionInfo ng-scope isFirst" ng-class="{'isFirst': $index === 0}" ng-repeat="connect in item.connections">
+                                    <div class="colorBlock ng-binding" ng-style="{'background-color': connect.color}" style="background-color: rgb(41, 157, 142);">1</div>
+                                    <div class="connCondition ng-binding" ng-class="{'isDummyConn': connect.targetId === ''}" title="Default goto FilterUsers ">Default goto FilterUsers </div>
+                                    <!-- ngIf: connect.targetId === '' -->
+                                    <i class="fa fa-caret-up connTooltipArrow"></i>
+                                </div>
+                                <!-- end ngRepeat: connect in item.connections -->
+                            </div>
+
+                            <!-- ngIf: displayMode !== 'view' --><span class="remove ng-scope" ng-click="onRemove(item.uId)" ng-if="displayMode !== 'view'">
+                                    <i class="fa fa-trash"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' -->
+                        </div>
+                        <!-- ngRepeat: tempConnection in item.tempConnections -->
+                    </div>
+                    <!-- end ngRepeat: item in objList -->
+                    <div class="draggableEle ng-scope ui-draggable ui-draggable-handle" ng-style="{&quot;border-color&quot;:&quot;#4a4a4a&quot;}" ng-repeat="item in objList" ng-class="{'draggableHide':item.hide, 'nodeSelected': item.isSelected}" ng-click="nodeClick($event,item.uId)" style="border-color: rgb(74, 74, 74); top: 63px; left: 304px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="dragEleConn" data-id="service5" data-type="service">
+                            <div class="nodeTypeName" ng-style="{&quot;border-color&quot;:&quot;#4a4a4a&quot;,&quot;background-color&quot;:&quot;#4a4a4a&quot;}" style="border-color: rgb(74, 74, 74); background-color: rgb(74, 74, 74);">
+                                <span class="nodeTypeLbl ng-binding">SERVICE</span>
+                                <i class="fa fa-caret-down nodeTypeLblArrow"></i>
+                            </div>
+                            <span class="configure" ng-click="onConfigure(item.uId)">
+                                    <i class="fa fa-gear"></i>
+                                </span>
+                            <!-- ngIf: !(item.type==='agentTransfer') --><span class="connectionPlug ng-scope" ng-if="!(item.type==='agentTransfer')" ng-click="onConfigure(item.uId, 'connection')">
+                                    <i class="fa fa-plug"></i>
+                                </span>
+                            <!-- end ngIf: !(item.type==='agentTransfer') -->
+                            <!-- ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) -->
+                            <span class="nodeMap" ng-click="tracePathClick(item.uId)">
+                                    <i class="fa fa-sitemap"></i>
+                                </span>
+                            <!-- remove this comment if hide dialog act node connections
+                                <span class="addDummyConnection" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer'|| (item.flowTaskId && item.flowTaskId.length > 0))">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span> -->
+                            <!-- ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') --><span class="addDummyConnection ng-scope" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' &amp;&amp; !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer')">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') -->
+                            <span class="objName ng-binding" ng-bind-html="highlight(item.uId, item, searchText)">GetAllWorkspaces</span>
+                            <!-- ngIf: item.desc && item.desc.length > 0 -->
+                            <!-- ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="marginTop10">
+                                <!-- ngRepeat: connect in item.connections -->
+                                <div class="connectionInfo ng-scope isFirst" ng-class="{'isFirst': $index === 0}" ng-repeat="connect in item.connections">
+                                    <div class="colorBlock ng-binding" ng-style="{'background-color': connect.color}" style="background-color: rgb(41, 157, 142);">1</div>
+                                    <div class="connCondition ng-binding" ng-class="{'isDummyConn': connect.targetId === ''}" title="Default goto Workspace ">Default goto Workspace </div>
+                                    <!-- ngIf: connect.targetId === '' -->
+                                    <i class="fa fa-caret-up connTooltipArrow"></i>
+                                </div>
+                                <!-- end ngRepeat: connect in item.connections -->
+                            </div>
+
+                            <!-- ngIf: displayMode !== 'view' --><span class="remove ng-scope" ng-click="onRemove(item.uId)" ng-if="displayMode !== 'view'">
+                                    <i class="fa fa-trash"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' -->
+                        </div>
+                        <!-- ngRepeat: tempConnection in item.tempConnections -->
+                    </div>
+                    <!-- end ngRepeat: item in objList -->
+                    <div class="draggableEle ng-scope ui-draggable ui-draggable-handle" ng-style="{&quot;border-color&quot;:&quot;#3ab962&quot;}" ng-repeat="item in objList" ng-class="{'draggableHide':item.hide, 'nodeSelected': item.isSelected}" ng-click="nodeClick($event,item.uId)" style="border-color: rgb(58, 185, 98); top: 40px; left: 608px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="dragEleConn" data-id="entity7" data-type="entity">
+                            <div class="nodeTypeName" ng-style="{&quot;border-color&quot;:&quot;#3ab962&quot;,&quot;background-color&quot;:&quot;#3ab962&quot;}" style="border-color: rgb(58, 185, 98); background-color: rgb(58, 185, 98);">
+                                <span class="nodeTypeLbl ng-binding">ENTITY</span>
+                                <i class="fa fa-caret-down nodeTypeLblArrow"></i>
+                            </div>
+                            <span class="configure" ng-click="onConfigure(item.uId)">
+                                    <i class="fa fa-gear"></i>
+                                </span>
+                            <!-- ngIf: !(item.type==='agentTransfer') --><span class="connectionPlug ng-scope" ng-if="!(item.type==='agentTransfer')" ng-click="onConfigure(item.uId, 'connection')">
+                                    <i class="fa fa-plug"></i>
+                                </span>
+                            <!-- end ngIf: !(item.type==='agentTransfer') -->
+                            <!-- ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) --><span class="instancePropLink ng-scope" ng-if="item.type==='entity' ||(item.type==='intent' &amp;&amp; (item.flowTaskId &amp;&amp; item.flowTaskId.length > 0)) " ng-click="onConfigure(item.uId, 'instanceProperties')">
+                                    <i class="fa fa-dot-circle-o"></i>
+                                </span>
+                            <!-- end ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) -->
+                            <span class="nodeMap" ng-click="tracePathClick(item.uId)">
+                                    <i class="fa fa-sitemap"></i>
+                                </span>
+                            <!-- remove this comment if hide dialog act node connections
+                                <span class="addDummyConnection" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer'|| (item.flowTaskId && item.flowTaskId.length > 0))">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span> -->
+                            <!-- ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') --><span class="addDummyConnection ng-scope" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' &amp;&amp; !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer')">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') -->
+                            <span class="objName ng-binding" ng-bind-html="highlight(item.uId, item, searchText)">Workspace</span>
+                            <!-- ngIf: item.desc && item.desc.length > 0 -->
+                            <!-- ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="objMessage ng-scope" ng-if="getNodeMessages(item, true).length > 0">
+                                <span class="type ng-binding">List of items (enumerated)</span>
+                                <span class="objMessageTxt ng-binding">Custom Javascript</span>
+                                <i class="fa fa-caret-up objMessageArrow"></i>
+                                <span class="objMessageFull ng-binding"></span>
+                            </div>
+                            <!-- end ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="marginTop10">
+                                <!-- ngRepeat: connect in item.connections -->
+                                <div class="connectionInfo ng-scope isFirst" ng-class="{'isFirst': $index === 0}" ng-repeat="connect in item.connections">
+                                    <div class="colorBlock ng-binding" ng-style="{'background-color': connect.color}" style="background-color: rgb(41, 157, 142);">1</div>
+                                    <div class="connCondition ng-binding" ng-class="{'isDummyConn': connect.targetId === ''}" title="Default goto GetAllProjects ">Default goto GetAllProjects </div>
+                                    <!-- ngIf: connect.targetId === '' -->
+                                    <i class="fa fa-caret-up connTooltipArrow"></i>
+                                </div>
+                                <!-- end ngRepeat: connect in item.connections -->
+                            </div>
+
+                            <!-- ngIf: displayMode !== 'view' --><span class="remove ng-scope" ng-click="onRemove(item.uId)" ng-if="displayMode !== 'view'">
+                                    <i class="fa fa-trash"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' -->
+                        </div>
+                        <!-- ngRepeat: tempConnection in item.tempConnections -->
+                    </div>
+                    <!-- end ngRepeat: item in objList -->
+                    <div class="draggableEle ng-scope ui-draggable ui-draggable-handle" ng-style="{&quot;border-color&quot;:&quot;#9b9b9b&quot;}" ng-repeat="item in objList" ng-class="{'draggableHide':item.hide, 'nodeSelected': item.isSelected}" ng-click="nodeClick($event,item.uId)" style="border-color: rgb(155, 155, 155); top: 311px; left: 390px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="dragEleConn" data-id="script8" data-type="script">
+                            <div class="nodeTypeName" ng-style="{&quot;border-color&quot;:&quot;#9b9b9b&quot;,&quot;background-color&quot;:&quot;#9b9b9b&quot;}" style="border-color: rgb(155, 155, 155); background-color: rgb(155, 155, 155);">
+                                <span class="nodeTypeLbl ng-binding">SCRIPT</span>
+                                <i class="fa fa-caret-down nodeTypeLblArrow"></i>
+                            </div>
+                            <span class="configure" ng-click="onConfigure(item.uId)">
+                                    <i class="fa fa-gear"></i>
+                                </span>
+                            <!-- ngIf: !(item.type==='agentTransfer') --><span class="connectionPlug ng-scope" ng-if="!(item.type==='agentTransfer')" ng-click="onConfigure(item.uId, 'connection')">
+                                    <i class="fa fa-plug"></i>
+                                </span>
+                            <!-- end ngIf: !(item.type==='agentTransfer') -->
+                            <!-- ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) -->
+                            <span class="nodeMap" ng-click="tracePathClick(item.uId)">
+                                    <i class="fa fa-sitemap"></i>
+                                </span>
+                            <!-- remove this comment if hide dialog act node connections
+                                <span class="addDummyConnection" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer'|| (item.flowTaskId && item.flowTaskId.length > 0))">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span> -->
+                            <!-- ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') --><span class="addDummyConnection ng-scope" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' &amp;&amp; !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer')">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') -->
+                            <span class="objName ng-binding" ng-bind-html="highlight(item.uId, item, searchText)">FilterUsers</span>
+                            <!-- ngIf: item.desc && item.desc.length > 0 -->
+                            <!-- ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="marginTop10">
+                                <!-- ngRepeat: connect in item.connections -->
+                                <div class="connectionInfo ng-scope isFirst" ng-class="{'isFirst': $index === 0}" ng-repeat="connect in item.connections">
+                                    <div class="colorBlock ng-binding" ng-style="{'background-color': connect.color}" style="background-color: rgb(41, 157, 142);">1</div>
+                                    <div class="connCondition ng-binding" ng-class="{'isDummyConn': connect.targetId === ''}" title="Default goto User ">Default goto User </div>
+                                    <!-- ngIf: connect.targetId === '' -->
+                                    <i class="fa fa-caret-up connTooltipArrow"></i>
+                                </div>
+                                <!-- end ngRepeat: connect in item.connections -->
+                            </div>
+
+                            <!-- ngIf: displayMode !== 'view' --><span class="remove ng-scope" ng-click="onRemove(item.uId)" ng-if="displayMode !== 'view'">
+                                    <i class="fa fa-trash"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' -->
+                        </div>
+                        <!-- ngRepeat: tempConnection in item.tempConnections -->
+                    </div>
+                    <!-- end ngRepeat: item in objList -->
+                    <div class="draggableEle ng-scope ui-draggable ui-draggable-handle" ng-style="{&quot;border-color&quot;:&quot;#3ab962&quot;}" ng-repeat="item in objList" ng-class="{'draggableHide':item.hide, 'nodeSelected': item.isSelected}" ng-click="nodeClick($event,item.uId)" style="border-color: rgb(58, 185, 98); top: 311px; left: 50px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="dragEleConn" data-id="entity9" data-type="entity">
+                            <div class="nodeTypeName" ng-style="{&quot;border-color&quot;:&quot;#3ab962&quot;,&quot;background-color&quot;:&quot;#3ab962&quot;}" style="border-color: rgb(58, 185, 98); background-color: rgb(58, 185, 98);">
+                                <span class="nodeTypeLbl ng-binding">ENTITY</span>
+                                <i class="fa fa-caret-down nodeTypeLblArrow"></i>
+                            </div>
+                            <span class="configure" ng-click="onConfigure(item.uId)">
+                                    <i class="fa fa-gear"></i>
+                                </span>
+                            <!-- ngIf: !(item.type==='agentTransfer') --><span class="connectionPlug ng-scope" ng-if="!(item.type==='agentTransfer')" ng-click="onConfigure(item.uId, 'connection')">
+                                    <i class="fa fa-plug"></i>
+                                </span>
+                            <!-- end ngIf: !(item.type==='agentTransfer') -->
+                            <!-- ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) --><span class="instancePropLink ng-scope" ng-if="item.type==='entity' ||(item.type==='intent' &amp;&amp; (item.flowTaskId &amp;&amp; item.flowTaskId.length > 0)) " ng-click="onConfigure(item.uId, 'instanceProperties')">
+                                    <i class="fa fa-dot-circle-o"></i>
+                                </span>
+                            <!-- end ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) -->
+                            <span class="nodeMap" ng-click="tracePathClick(item.uId)">
+                                    <i class="fa fa-sitemap"></i>
+                                </span>
+                            <!-- remove this comment if hide dialog act node connections
+                                <span class="addDummyConnection" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer'|| (item.flowTaskId && item.flowTaskId.length > 0))">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span> -->
+                            <!-- ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') --><span class="addDummyConnection ng-scope" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' &amp;&amp; !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer')">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') -->
+                            <span class="objName ng-binding" ng-bind-html="highlight(item.uId, item, searchText)">User</span>
+                            <!-- ngIf: item.desc && item.desc.length > 0 -->
+                            <!-- ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="objMessage ng-scope" ng-if="getNodeMessages(item, true).length > 0">
+                                <span class="type ng-binding">List of items (enumerated)</span>
+                                <span class="objMessageTxt ng-binding">Custom Javascript</span>
+                                <i class="fa fa-caret-up objMessageArrow"></i>
+                                <span class="objMessageFull ng-binding"></span>
+                            </div>
+                            <!-- end ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="marginTop10">
+                                <!-- ngRepeat: connect in item.connections -->
+                                <div class="connectionInfo ng-scope isFirst" ng-class="{'isFirst': $index === 0}" ng-repeat="connect in item.connections">
+                                    <div class="colorBlock ng-binding" ng-style="{'background-color': connect.color}" style="background-color: rgb(41, 157, 142);">1</div>
+                                    <div class="connCondition ng-binding" ng-class="{'isDummyConn': connect.targetId === ''}" title="Default goto AssignTask ">Default goto AssignTask </div>
+                                    <!-- ngIf: connect.targetId === '' -->
+                                    <i class="fa fa-caret-up connTooltipArrow"></i>
+                                </div>
+                                <!-- end ngRepeat: connect in item.connections -->
+                            </div>
+
+                            <!-- ngIf: displayMode !== 'view' --><span class="remove ng-scope" ng-click="onRemove(item.uId)" ng-if="displayMode !== 'view'">
+                                    <i class="fa fa-trash"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' -->
+                        </div>
+                        <!-- ngRepeat: tempConnection in item.tempConnections -->
+                    </div>
+                    <!-- end ngRepeat: item in objList -->
+                    <div class="draggableEle ng-scope ui-draggable ui-draggable-handle" ng-style="{&quot;border-color&quot;:&quot;#4a4a4a&quot;}" ng-repeat="item in objList" ng-class="{'draggableHide':item.hide, 'nodeSelected': item.isSelected}" ng-click="nodeClick($event,item.uId)" style="border-color: rgb(74, 74, 74); top: 180px; left: 1276px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="dragEleConn" data-id="service11" data-type="service">
+                            <div class="nodeTypeName" ng-style="{&quot;border-color&quot;:&quot;#4a4a4a&quot;,&quot;background-color&quot;:&quot;#4a4a4a&quot;}" style="border-color: rgb(74, 74, 74); background-color: rgb(74, 74, 74);">
+                                <span class="nodeTypeLbl ng-binding">SERVICE</span>
+                                <i class="fa fa-caret-down nodeTypeLblArrow"></i>
+                            </div>
+                            <span class="configure" ng-click="onConfigure(item.uId)">
+                                    <i class="fa fa-gear"></i>
+                                </span>
+                            <!-- ngIf: !(item.type==='agentTransfer') --><span class="connectionPlug ng-scope" ng-if="!(item.type==='agentTransfer')" ng-click="onConfigure(item.uId, 'connection')">
+                                    <i class="fa fa-plug"></i>
+                                </span>
+                            <!-- end ngIf: !(item.type==='agentTransfer') -->
+                            <!-- ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) -->
+                            <span class="nodeMap" ng-click="tracePathClick(item.uId)">
+                                    <i class="fa fa-sitemap"></i>
+                                </span>
+                            <!-- remove this comment if hide dialog act node connections
+                                <span class="addDummyConnection" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer'|| (item.flowTaskId && item.flowTaskId.length > 0))">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span> -->
+                            <!-- ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') --><span class="addDummyConnection ng-scope" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' &amp;&amp; !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer')">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') -->
+                            <span class="objName ng-binding" ng-bind-html="highlight(item.uId, item, searchText)">GetAllTasks</span>
+                            <!-- ngIf: item.desc && item.desc.length > 0 -->
+                            <!-- ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="marginTop10">
+                                <!-- ngRepeat: connect in item.connections -->
+                                <div class="connectionInfo ng-scope isFirst" ng-class="{'isFirst': $index === 0}" ng-repeat="connect in item.connections">
+                                    <div class="colorBlock ng-binding" ng-style="{'background-color': connect.color}" style="background-color: rgb(41, 157, 142);">1</div>
+                                    <div class="connCondition ng-binding" ng-class="{'isDummyConn': connect.targetId === ''}" title="Default goto CheckForTasks ">Default goto CheckForTasks </div>
+                                    <!-- ngIf: connect.targetId === '' -->
+                                    <i class="fa fa-caret-up connTooltipArrow"></i>
+                                </div>
+                                <!-- end ngRepeat: connect in item.connections -->
+                            </div>
+
+                            <!-- ngIf: displayMode !== 'view' --><span class="remove ng-scope" ng-click="onRemove(item.uId)" ng-if="displayMode !== 'view'">
+                                    <i class="fa fa-trash"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' -->
+                        </div>
+                        <!-- ngRepeat: tempConnection in item.tempConnections -->
+                    </div>
+                    <!-- end ngRepeat: item in objList -->
+                    <div class="draggableEle ng-scope ui-draggable ui-draggable-handle" ng-style="{&quot;border-color&quot;:&quot;#4a4a4a&quot;}" ng-repeat="item in objList" ng-class="{'draggableHide':item.hide, 'nodeSelected': item.isSelected}" ng-click="nodeClick($event,item.uId)" style="border-color: rgb(74, 74, 74); top: 49px; left: 939px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="dragEleConn" data-id="service13" data-type="service">
+                            <div class="nodeTypeName" ng-style="{&quot;border-color&quot;:&quot;#4a4a4a&quot;,&quot;background-color&quot;:&quot;#4a4a4a&quot;}" style="border-color: rgb(74, 74, 74); background-color: rgb(74, 74, 74);">
+                                <span class="nodeTypeLbl ng-binding">SERVICE</span>
+                                <i class="fa fa-caret-down nodeTypeLblArrow"></i>
+                            </div>
+                            <span class="configure" ng-click="onConfigure(item.uId)">
+                                    <i class="fa fa-gear"></i>
+                                </span>
+                            <!-- ngIf: !(item.type==='agentTransfer') --><span class="connectionPlug ng-scope" ng-if="!(item.type==='agentTransfer')" ng-click="onConfigure(item.uId, 'connection')">
+                                    <i class="fa fa-plug"></i>
+                                </span>
+                            <!-- end ngIf: !(item.type==='agentTransfer') -->
+                            <!-- ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) -->
+                            <span class="nodeMap" ng-click="tracePathClick(item.uId)">
+                                    <i class="fa fa-sitemap"></i>
+                                </span>
+                            <!-- remove this comment if hide dialog act node connections
+                                <span class="addDummyConnection" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer'|| (item.flowTaskId && item.flowTaskId.length > 0))">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span> -->
+                            <!-- ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') --><span class="addDummyConnection ng-scope" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' &amp;&amp; !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer')">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') -->
+                            <span class="objName ng-binding" ng-bind-html="highlight(item.uId, item, searchText)">GetAllProjects</span>
+                            <!-- ngIf: item.desc && item.desc.length > 0 -->
+                            <!-- ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="marginTop10">
+                                <!-- ngRepeat: connect in item.connections -->
+                                <div class="connectionInfo ng-scope isFirst" ng-class="{'isFirst': $index === 0}" ng-repeat="connect in item.connections">
+                                    <div class="colorBlock ng-binding" ng-style="{'background-color': connect.color}" style="background-color: rgb(41, 157, 142);">1</div>
+                                    <div class="connCondition ng-binding" ng-class="{'isDummyConn': connect.targetId === ''}" title="Default goto Project ">Default goto Project </div>
+                                    <!-- ngIf: connect.targetId === '' -->
+                                    <i class="fa fa-caret-up connTooltipArrow"></i>
+                                </div>
+                                <!-- end ngRepeat: connect in item.connections -->
+                            </div>
+
+                            <!-- ngIf: displayMode !== 'view' --><span class="remove ng-scope" ng-click="onRemove(item.uId)" ng-if="displayMode !== 'view'">
+                                    <i class="fa fa-trash"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' -->
+                        </div>
+                        <!-- ngRepeat: tempConnection in item.tempConnections -->
+                    </div>
+                    <!-- end ngRepeat: item in objList -->
+                    <div class="draggableEle ng-scope ui-draggable ui-draggable-handle" ng-style="{&quot;border-color&quot;:&quot;#3ab962&quot;}" ng-repeat="item in objList" ng-class="{'draggableHide':item.hide, 'nodeSelected': item.isSelected}" ng-click="nodeClick($event,item.uId)" style="border-color: rgb(58, 185, 98); top: 44px; left: 1256px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="dragEleConn" data-id="entity15" data-type="entity">
+                            <div class="nodeTypeName" ng-style="{&quot;border-color&quot;:&quot;#3ab962&quot;,&quot;background-color&quot;:&quot;#3ab962&quot;}" style="border-color: rgb(58, 185, 98); background-color: rgb(58, 185, 98);">
+                                <span class="nodeTypeLbl ng-binding">ENTITY</span>
+                                <i class="fa fa-caret-down nodeTypeLblArrow"></i>
+                            </div>
+                            <span class="configure" ng-click="onConfigure(item.uId)">
+                                    <i class="fa fa-gear"></i>
+                                </span>
+                            <!-- ngIf: !(item.type==='agentTransfer') --><span class="connectionPlug ng-scope" ng-if="!(item.type==='agentTransfer')" ng-click="onConfigure(item.uId, 'connection')">
+                                    <i class="fa fa-plug"></i>
+                                </span>
+                            <!-- end ngIf: !(item.type==='agentTransfer') -->
+                            <!-- ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) --><span class="instancePropLink ng-scope" ng-if="item.type==='entity' ||(item.type==='intent' &amp;&amp; (item.flowTaskId &amp;&amp; item.flowTaskId.length > 0)) " ng-click="onConfigure(item.uId, 'instanceProperties')">
+                                    <i class="fa fa-dot-circle-o"></i>
+                                </span>
+                            <!-- end ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) -->
+                            <span class="nodeMap" ng-click="tracePathClick(item.uId)">
+                                    <i class="fa fa-sitemap"></i>
+                                </span>
+                            <!-- remove this comment if hide dialog act node connections
+                                <span class="addDummyConnection" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer'|| (item.flowTaskId && item.flowTaskId.length > 0))">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span> -->
+                            <!-- ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') --><span class="addDummyConnection ng-scope" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' &amp;&amp; !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer')">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') -->
+                            <span class="objName ng-binding" ng-bind-html="highlight(item.uId, item, searchText)">Project</span>
+                            <!-- ngIf: item.desc && item.desc.length > 0 -->
+                            <!-- ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="objMessage ng-scope" ng-if="getNodeMessages(item, true).length > 0">
+                                <span class="type ng-binding">List of items (enumerated)</span>
+                                <span class="objMessageTxt ng-binding">Custom Javascript</span>
+                                <i class="fa fa-caret-up objMessageArrow"></i>
+                                <span class="objMessageFull ng-binding"></span>
+                            </div>
+                            <!-- end ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="marginTop10">
+                                <!-- ngRepeat: connect in item.connections -->
+                                <div class="connectionInfo ng-scope isFirst" ng-class="{'isFirst': $index === 0}" ng-repeat="connect in item.connections">
+                                    <div class="colorBlock ng-binding" ng-style="{'background-color': connect.color}" style="background-color: rgb(41, 157, 142);">1</div>
+                                    <div class="connCondition ng-binding" ng-class="{'isDummyConn': connect.targetId === ''}" title="Default goto GetAllTasks ">Default goto GetAllTasks </div>
+                                    <!-- ngIf: connect.targetId === '' -->
+                                    <i class="fa fa-caret-up connTooltipArrow"></i>
+                                </div>
+                                <!-- end ngRepeat: connect in item.connections -->
+                            </div>
+
+                            <!-- ngIf: displayMode !== 'view' --><span class="remove ng-scope" ng-click="onRemove(item.uId)" ng-if="displayMode !== 'view'">
+                                    <i class="fa fa-trash"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' -->
+                        </div>
+                        <!-- ngRepeat: tempConnection in item.tempConnections -->
+                    </div>
+                    <!-- end ngRepeat: item in objList -->
+                    <div class="draggableEle ng-scope ui-draggable ui-draggable-handle" ng-style="{&quot;border-color&quot;:&quot;#9b9b9b&quot;}" ng-repeat="item in objList" ng-class="{'draggableHide':item.hide, 'nodeSelected': item.isSelected}" ng-click="nodeClick($event,item.uId)" style="border-color: rgb(155, 155, 155); top: 294px; left: 1276px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="dragEleConn" data-id="script18" data-type="script">
+                            <div class="nodeTypeName" ng-style="{&quot;border-color&quot;:&quot;#9b9b9b&quot;,&quot;background-color&quot;:&quot;#9b9b9b&quot;}" style="border-color: rgb(155, 155, 155); background-color: rgb(155, 155, 155);">
+                                <span class="nodeTypeLbl ng-binding">SCRIPT</span>
+                                <i class="fa fa-caret-down nodeTypeLblArrow"></i>
+                            </div>
+                            <span class="configure" ng-click="onConfigure(item.uId)">
+                                    <i class="fa fa-gear"></i>
+                                </span>
+                            <!-- ngIf: !(item.type==='agentTransfer') --><span class="connectionPlug ng-scope" ng-if="!(item.type==='agentTransfer')" ng-click="onConfigure(item.uId, 'connection')">
+                                    <i class="fa fa-plug"></i>
+                                </span>
+                            <!-- end ngIf: !(item.type==='agentTransfer') -->
+                            <!-- ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) -->
+                            <span class="nodeMap" ng-click="tracePathClick(item.uId)">
+                                    <i class="fa fa-sitemap"></i>
+                                </span>
+                            <!-- remove this comment if hide dialog act node connections
+                                <span class="addDummyConnection" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer'|| (item.flowTaskId && item.flowTaskId.length > 0))">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span> -->
+                            <!-- ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') --><span class="addDummyConnection ng-scope" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' &amp;&amp; !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer')">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') -->
+                            <span class="objName ng-binding" ng-bind-html="highlight(item.uId, item, searchText)">CheckForTasks</span>
+                            <!-- ngIf: item.desc && item.desc.length > 0 -->
+                            <!-- ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="marginTop10">
+                                <!-- ngRepeat: connect in item.connections -->
+                                <div class="connectionInfo ng-scope isFirst" ng-class="{'isFirst': $index === 0}" ng-repeat="connect in item.connections">
+                                    <div class="colorBlock ng-binding" ng-style="{'background-color': connect.color}" style="background-color: rgb(41, 157, 142);">1</div>
+                                    <div class="connCondition ng-binding" ng-class="{'isDummyConn': connect.targetId === ''}" title="Default goto Task ">Default goto Task </div>
+                                    <!-- ngIf: connect.targetId === '' -->
+                                    <i class="fa fa-caret-up connTooltipArrow"></i>
+                                </div>
+                                <!-- end ngRepeat: connect in item.connections -->
+                            </div>
+
+                            <!-- ngIf: displayMode !== 'view' --><span class="remove ng-scope" ng-click="onRemove(item.uId)" ng-if="displayMode !== 'view'">
+                                    <i class="fa fa-trash"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' -->
+                        </div>
+                        <!-- ngRepeat: tempConnection in item.tempConnections -->
+                    </div>
+                    <!-- end ngRepeat: item in objList -->
+                    <div class="draggableEle ng-scope ui-draggable ui-draggable-handle" ng-style="{&quot;border-color&quot;:&quot;#3ab962&quot;}" ng-repeat="item in objList" ng-class="{'draggableHide':item.hide, 'nodeSelected': item.isSelected}" ng-click="nodeClick($event,item.uId)" style="border-color: rgb(58, 185, 98); top: 301px; left: 959px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="dragEleConn" data-id="entity19" data-type="entity">
+                            <div class="nodeTypeName" ng-style="{&quot;border-color&quot;:&quot;#3ab962&quot;,&quot;background-color&quot;:&quot;#3ab962&quot;}" style="border-color: rgb(58, 185, 98); background-color: rgb(58, 185, 98);">
+                                <span class="nodeTypeLbl ng-binding">ENTITY</span>
+                                <i class="fa fa-caret-down nodeTypeLblArrow"></i>
+                            </div>
+                            <span class="configure" ng-click="onConfigure(item.uId)">
+                                    <i class="fa fa-gear"></i>
+                                </span>
+                            <!-- ngIf: !(item.type==='agentTransfer') --><span class="connectionPlug ng-scope" ng-if="!(item.type==='agentTransfer')" ng-click="onConfigure(item.uId, 'connection')">
+                                    <i class="fa fa-plug"></i>
+                                </span>
+                            <!-- end ngIf: !(item.type==='agentTransfer') -->
+                            <!-- ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) --><span class="instancePropLink ng-scope" ng-if="item.type==='entity' ||(item.type==='intent' &amp;&amp; (item.flowTaskId &amp;&amp; item.flowTaskId.length > 0)) " ng-click="onConfigure(item.uId, 'instanceProperties')">
+                                    <i class="fa fa-dot-circle-o"></i>
+                                </span>
+                            <!-- end ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) -->
+                            <span class="nodeMap" ng-click="tracePathClick(item.uId)">
+                                    <i class="fa fa-sitemap"></i>
+                                </span>
+                            <!-- remove this comment if hide dialog act node connections
+                                <span class="addDummyConnection" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer'|| (item.flowTaskId && item.flowTaskId.length > 0))">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span> -->
+                            <!-- ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') --><span class="addDummyConnection ng-scope" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' &amp;&amp; !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer')">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') -->
+                            <span class="objName ng-binding" ng-bind-html="highlight(item.uId, item, searchText)">Task</span>
+                            <!-- ngIf: item.desc && item.desc.length > 0 -->
+                            <!-- ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="objMessage ng-scope" ng-if="getNodeMessages(item, true).length > 0">
+                                <span class="type ng-binding">List of items (enumerated)</span>
+                                <span class="objMessageTxt ng-binding">Custom Javascript</span>
+                                <i class="fa fa-caret-up objMessageArrow"></i>
+                                <span class="objMessageFull ng-binding"></span>
+                            </div>
+                            <!-- end ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="marginTop10">
+                                <!-- ngRepeat: connect in item.connections -->
+                                <div class="connectionInfo ng-scope isFirst" ng-class="{'isFirst': $index === 0}" ng-repeat="connect in item.connections">
+                                    <div class="colorBlock ng-binding" ng-style="{'background-color': connect.color}" style="background-color: rgb(41, 157, 142);">1</div>
+                                    <div class="connCondition ng-binding" ng-class="{'isDummyConn': connect.targetId === ''}" title="Default goto GetAllUsers ">Default goto GetAllUsers </div>
+                                    <!-- ngIf: connect.targetId === '' -->
+                                    <i class="fa fa-caret-up connTooltipArrow"></i>
+                                </div>
+                                <!-- end ngRepeat: connect in item.connections -->
+                            </div>
+
+                            <!-- ngIf: displayMode !== 'view' --><span class="remove ng-scope" ng-click="onRemove(item.uId)" ng-if="displayMode !== 'view'">
+                                    <i class="fa fa-trash"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' -->
+                        </div>
+                        <!-- ngRepeat: tempConnection in item.tempConnections -->
+                    </div>
+                    <!-- end ngRepeat: item in objList -->
+                    <div class="draggableEle ng-scope ui-draggable ui-draggable-handle" ng-style="{&quot;border-color&quot;:&quot;#4a4a4a&quot;}" ng-repeat="item in objList" ng-class="{'draggableHide':item.hide, 'nodeSelected': item.isSelected}" ng-click="nodeClick($event,item.uId)" style="border-color: rgb(74, 74, 74); top: 448px; left: 382px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="dragEleConn" data-id="service20" data-type="service">
+                            <div class="nodeTypeName" ng-style="{&quot;border-color&quot;:&quot;#4a4a4a&quot;,&quot;background-color&quot;:&quot;#4a4a4a&quot;}" style="border-color: rgb(74, 74, 74); background-color: rgb(74, 74, 74);">
+                                <span class="nodeTypeLbl ng-binding">SERVICE</span>
+                                <i class="fa fa-caret-down nodeTypeLblArrow"></i>
+                            </div>
+                            <span class="configure" ng-click="onConfigure(item.uId)">
+                                    <i class="fa fa-gear"></i>
+                                </span>
+                            <!-- ngIf: !(item.type==='agentTransfer') --><span class="connectionPlug ng-scope" ng-if="!(item.type==='agentTransfer')" ng-click="onConfigure(item.uId, 'connection')">
+                                    <i class="fa fa-plug"></i>
+                                </span>
+                            <!-- end ngIf: !(item.type==='agentTransfer') -->
+                            <!-- ngIf: item.type==='entity' ||(item.type==='intent' && (item.flowTaskId && item.flowTaskId.length > 0)) -->
+                            <span class="nodeMap" ng-click="tracePathClick(item.uId)">
+                                    <i class="fa fa-sitemap"></i>
+                                </span>
+                            <!-- remove this comment if hide dialog act node connections
+                                <span class="addDummyConnection" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer'|| (item.flowTaskId && item.flowTaskId.length > 0))">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span> -->
+                            <!-- ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') --><span class="addDummyConnection ng-scope" ng-click="onAddNewDummyConnection(item.uId)" ng-if="displayMode !== 'view' &amp;&amp; !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer')">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' && !(item.uId === firstNodeUId || item.type === 'dialogAct' || item.type === 'agentTransfer') -->
+                            <span class="objName ng-binding" ng-bind-html="highlight(item.uId, item, searchText)">AssignTask</span>
+                            <!-- ngIf: item.desc && item.desc.length > 0 -->
+                            <!-- ngIf: getNodeMessages(item, true).length > 0 -->
+                            <div class="marginTop10">
+                                <!-- ngRepeat: connect in item.connections -->
+                                <div class="connectionInfo ng-scope isFirst" ng-class="{'isFirst': $index === 0}" ng-repeat="connect in item.connections">
+                                    <div class="colorBlock ng-binding" ng-style="{'background-color': connect.color}" style="background-color: rgb(41, 157, 142);">1</div>
+                                    <div class="connCondition ng-binding" ng-class="{'isDummyConn': connect.targetId === ''}" title="Default goto AssignTaskResponse ">Default goto AssignTaskResponse </div>
+                                    <!-- ngIf: connect.targetId === '' -->
+                                    <i class="fa fa-caret-up connTooltipArrow"></i>
+                                </div>
+                                <!-- end ngRepeat: connect in item.connections -->
+                            </div>
+
+                            <!-- ngIf: displayMode !== 'view' --><span class="remove ng-scope" ng-click="onRemove(item.uId)" ng-if="displayMode !== 'view'">
+                                    <i class="fa fa-trash"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' -->
+                        </div>
+                        <!-- ngRepeat: tempConnection in item.tempConnections -->
+                    </div>
+
+                    <div class="draggableEle ng-scope ui-draggable ui-draggable-handle"   style="border-color: rgb(0, 126, 255); top: 441px; left: 751px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="dragEleConn" data-id="message21" data-type="message">
+                            <div class="nodeTypeName" ng-style="{&quot;border-color&quot;:&quot;#007eff&quot;,&quot;background-color&quot;:&quot;#007eff&quot;}" style="border-color: rgb(0, 126, 255); background-color: rgb(0, 126, 255);">
+                                <span class="nodeTypeLbl ng-binding">MESSAGE</span>
+                                <i class="fa fa-caret-down nodeTypeLblArrow"></i>
+                            </div>
+                            <span class="configure" ng-click="onConfigure(item.uId)">
+                                    <i class="fa fa-gear"></i>
+                                </span>
+<span class="connectionPlug ng-scope" ng-if="!(item.type==='agentTransfer')" ng-click="onConfigure(item.uId, 'connection')">
+                                    <i class="fa fa-plug"></i>
+                                </span>
+
+                            <span class="nodeMap" ng-click="tracePathClick(item.uId)">
+                                    <i class="fa fa-sitemap"></i>
+                                </span>
+                <span class="addDummyConnection ng-scope" ng-click="onAddNewDummyConnection(item.uId)">
+                                    <i class="fa fa-plus-circle"></i>
+                                </span>
+
+                            <span class="objName ng-binding" ng-bind-html="highlight(item.uId, item, searchText)">AssignTaskResponse</span>
+
+                            <div class="objMessage ng-scope" ng-if="getNodeMessages(item, true).length > 0">
+                                <span class="type ng-binding"></span>
+                                <span class="objMessageTxt ng-binding">Custom Javascript</span>
+                                <i class="fa fa-caret-up objMessageArrow"></i>
+                                <span class="objMessageFull ng-binding"></span>
+                            </div>
+
+                            <div class="marginTop10">
+
+                                <div class="connectionInfo ng-scope isFirst" ng-class="{'isFirst': $index === 0}" ng-repeat="connect in item.connections">
+                                    <div class="colorBlock ng-binding" ng-style="{'background-color': connect.color}" style="background-color: rgb(41, 157, 142);">1</div>
+                                    <div class="connCondition ng-binding" ng-class="{'isDummyConn': connect.targetId === ''}" title="Default goto end ">Default goto end </div>
+
+                                    <i class="fa fa-caret-up connTooltipArrow"></i>
+                                </div>
+
+                            </div>
+
+                            <!-- ngIf: displayMode !== 'view' --><span class="remove ng-scope" ng-click="onRemove(item.uId)" ng-if="displayMode !== 'view'">
+                                    <i class="fa fa-trash"></i>
+                                </span>
+                            <!-- end ngIf: displayMode !== 'view' -->
+                        </div>
+                        <!-- ngRepeat: tempConnection in item.tempConnections -->
+                        <!-- ngIf: tempConnection.targetId !== 'end' && displayMode !== 'view' -->
+                        <!-- end ngRepeat: tempConnection in item.tempConnections -->
+                    </div>
+                    <!-- end ngRepeat: item in objList -->
+
+
+                    <connection class="" linecolor="#299d8e" connectionnum="1" style="
+
+
+                    border-radius: 0px;
+                    position: absolute;
+                    border-color: rgb(41, 157, 142);
+                    border-width: 0px 0px 3px; 
+                    left: 214.2px; top: 128.4px;
+                    width: 105.778px; height: 0px;
+                    transform: scale(0.9); transform-origin: 0px 0px;">
+
+
+                        <div class="connection-inner"></div><i class="fa fa-caret-right" style="color: rgb(0, 0, 0);"></i><span class="connectionIdentifier" style="background-color: rgb(41, 157, 142);">1</span></connection>
+                    <connection class="line source-service2 target-script8 isBorderBottom isSingleLine point-left" linecolor="#299d8e" connectionnum="1" style="border-radius: 0px; position: absolute; border-color: rgb(41, 157, 142); border-width: 0px 0px 3px; left: 595.2px; top: 1343.9px; width: 94.6667px; height: 0px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="connection-inner"></div><i class="fa fa-caret-right" style="color: rgb(0, 0, 0);"></i><span class="connectionIdentifier" style="background-color: rgb(41, 157, 142);">1</span></connection>
+                    <connection class="line source-service5 target-entity7 isBorderTop isSingleLine point-right" linecolor="#299d8e" connectionnum="1" style="border-radius: 0px; position: absolute; border-color: rgb(41, 157, 142); border-width: 3px 0px 0px; left: 509.2px; top: 1198.4px; width: 115.778px; height: 0px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="connection-inner"></div><i class="fa fa-caret-right" style="color: rgb(0, 0, 0);"></i><span class="connectionIdentifier" style="background-color: rgb(41, 157, 142);">1</span></connection>
+                    <connection class="line source-entity7 target-service13 isBorderTop isSingleLine point-right" linecolor="#299d8e" connectionnum="1" style="border-radius: 0px; position: absolute; border-color: rgb(41, 157, 142); border-width: 3px 0px 0px; left: 813.2px; top: 1184.4px; width: 145.778px; height: 0px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="connection-inner"></div><i class="fa fa-caret-right" style="color: rgb(0, 0, 0);"></i><span class="connectionIdentifier" style="background-color: rgb(41, 157, 142);">1</span></connection>
+                    <connection class="line source-script8 target-entity9 isBorderBottom isSingleLine point-left" linecolor="#299d8e" connectionnum="1" style="border-radius: 0px; position: absolute; border-color: rgb(41, 157, 142); border-width: 0px 0px 3px; left: 255.2px; top: 2346.4px; width: 155.778px; height: 0px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="connection-inner"></div><i class="fa fa-caret-right" style="color: rgb(0, 0, 0);"></i><span class="connectionIdentifier" style="background-color: rgb(41, 157, 142);">1</span></connection>
+                    <connection class="line source-entity9 target-service20 isBorderBottom isNotSingleLine point-right" linecolor="#299d8e" connectionnum="1" style="border-top-left-radius: 0px; border-top-left-radius: 0px; border-bottom-left-radius: 0px; position: absolute; border-color: rgb(41, 157, 142); border-width: 0px 0px 3px 3px; left: 154.3px; top: 408.2px; width: 256.222px; height: 223.5556px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="connection-inner"></div><i class="fa fa-caret-right" style="color: rgb(0, 0, 0);"></i><span class="connectionIdentifier" style="background-color: rgb(41, 157, 142);">1</span></connection>
+                    <connection class="line source-service11 target-script18 isBorderLeft isSingleLine point-down" linecolor="#299d8e" connectionnum="1" style="border-radius: 0px; position: absolute; border-color: rgb(41, 157, 142); border-width: 0px 0px 0px 3px; left: 1380.3px; top: 1248.4px; width: 0px; height: 56.6667px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="connection-inner"></div><i class="fa fa-caret-right" style="color: rgb(0, 0, 0);"></i><span class="connectionIdentifier" style="background-color: rgb(41, 157, 142);">1</span></connection>
+                    <connection class="line source-service13 target-entity15 isBorderBottom isSingleLine point-right" linecolor="#299d8e" connectionnum="1" style="border-radius: 0px; position: absolute; border-color: rgb(41, 157, 142); border-width: 0px 0px 3px; left: 1144.2px; top: 184.4px; width: 130.222px; height: 0px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="connection-inner"></div><i class="fa fa-caret-right" style="color: rgb(0, 0, 0);"></i><span class="connectionIdentifier" style="background-color: rgb(41, 157, 142);">1</span></connection>
+                    <connection class="line source-entity15 target-service11 isBorderLeft isSingleLine point-down" linecolor="#299d8e" connectionnum="1" style="border-radius: 0px; position: absolute; border-color: rgb(41, 157, 142); border-width: 0px 0px 0px 3px; left: 1370.3px; top: 1411.2px; width: 0px; height: 49.1111px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="connection-inner"></div><i class="fa fa-caret-right" style="color: rgb(0, 0, 0);"></i><span class="connectionIdentifier" style="background-color: rgb(41, 157, 142);">1</span></connection>
+                    <connection class="line source-script18 target-entity19 isBorderBottom isSingleLine point-left" linecolor="#299d8e" connectionnum="1" style="border-radius: 0px; position: absolute; border-color: rgb(41, 157, 142); border-width: 0px 0px 3px; left: 1164.2px; top: 3132.9px; width: 130.222px; height: 0px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="connection-inner"></div><i class="fa fa-caret-right" style="color: rgb(0, 0, 0);"></i><span class="connectionIdentifier" style="background-color: rgb(41, 157, 142);">1</span></connection>
+                    <connection class="line source-entity19 target-service2 isBorderTop isSingleLine point-left" linecolor="#299d8e" connectionnum="1" style="border-radius: 0px; position: absolute; border-color: rgb(41, 157, 142); border-width: 3px 0px 0px; left: 880.2px; top: 371.4px; width: 93.5556px; height: 0px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="connection-inner"></div><i class="fa fa-caret-right" style="color: rgb(0, 0, 0);"></i><span class="connectionIdentifier" style="background-color: rgb(41, 157, 142);">1</span></connection>
+                    <connection class="line source-service20 target-message21 isBorderBottom isSingleLine point-right" linecolor="#299d8e" connectionnum="1" style="border-radius: 0px; position: absolute; border-color: rgb(41, 157, 142); border-width: 0px 0px 3px; left: 587.2px; top: 4813.4px; width: 188px; height: 0px; transform: scale(0.9); transform-origin: 0px 0px;">
+                        <div class="connection-inner"></div><i class="fa fa-caret-right" style="color: rgb(0, 0, 0);"></i><span class="connectionIdentifier" style="background-color: rgb(41, 157, 142);">1</span></connection>
+                </div>
+
+
+            </div>
+
+        </fieldset>
+
+    </div>
+    </div>
+
+</body>
+
+</html>
