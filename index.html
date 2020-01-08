@@ -1,31 +1,477 @@
-<!DOCTYPE HTML>
-<html manifest="offlinedatabase.manifest">
-   <head>
-   	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-   	  <meta name="viewport" content="width=480; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-      <title>Offline HTML5 SQLite - blog.vilourenco.com.br</title>
-      <script type="text/javascript" src="offlinedatabaseJS.js" ></script>
-   <style>
- 	body { font-family:Verdana, Geneva, sans-serif; font-size:11px; }
-   </style>
-      
-      
-   </head>
-   <body onload="onInit()">
-      <h3>Cadastro de Filmes</h3>
-      <ul  id="itemData" style="cursor:pointer;">
-      </ul>
-	  <h3>Detalhes:</h3>
-      <form name="itemForm">
-		<label for="id">Id:</label><input type="text" name="id" id="id" size=2 disabled="true"/>
-		<label for="nome">Nome:</label><input type="text" name="nome" id="nome" size=10/>
-		<label for="idade">Idade</label><input type="text" name="idade" id="idade" size=3 /> <br>
-		<br>
-		<input type="button" name="create" value="Create" onclick="onCreate()" />
-		<input type="button" name="update" value="Update" onclick="onUpdate()" />
-		<input type="button" name="delete" value="Delete" onclick="onDelete()" />
-      </form>
-	  <h4>Status:</h4>
-      <div id="status"></div>
-   </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="diagrama"></div>    
+
+
+<script>
+
+    class Diagrama {
+
+        constructor(){
+            this.load();
+        }
+
+        load(){
+            let request = new XMLHttpRequest();
+            request.open("POST", "js\diagrama.js", true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send();
+            request.onreadystatechange = () => {
+                if (request.readyState == 4) {
+                    if (request.status == 200) {
+                        console.log(request.responseText)
+                        //return JSON.parse(request.responseText)
+                    } 
+                }
+            }
+        }
+    }
+
+    diagrama = new Diagrama();
+
+
+
+
+
+</script>
+</body>
 </html>
+
+load(){
+    let url        = this.url;
+    let repre      = this.repre;
+    let bot_classe = this.bot_classe;
+    let nb         = this.nb;
+
+    request = new XMLHttpRequest();
+    request.open('POST', url, false);
+    
+    
+
+    return JSON.parse(request.responseText);
+}
+
+
+
+window.onmousedown=(function(e){diagrama.handleMouseDown(e);});
+window.onmousemove=(function(e){diagrama.handleMouseMove(e);});
+window.onmouseup=(function(e){diagrama.handleMouseUp(e);});
+
+class Diagrama {
+	constructor(parametro) {
+		this.repre      = parametro.representante;
+		this.bot_classe = parametro.bot_classe;
+		this.nb         = parametro.nb;
+		this.url        = parametro.url;
+		this.divs       = [];
+		this.load       = this.load();
+		this.isDown     = false;
+		this.draggingIndex;
+		this.startX;
+		this.startY;
+	}
+
+
+
+	gravaCoordenada(url, repre, bot_classe, nb, intencao){
+		let request = new XMLHttpRequest()
+			request.open("POST", url, true)
+			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+			request.send("&representante=" + repre + "&bot_classe=" + bot_classe + "&nb=" + nb + "&acao=gravaCordenada&intencao=" + intencao.getAttribute('id') + "&position=" + intencao.getAttribute('style'))
+
+			request.onreadystatechange = function () {
+				if (request.readyState == 4 && request.status == 200) {
+					request.responseText;
+				}
+			}
+
+	}
+
+	handleMouseDown(e){
+		e.preventDefault();
+		e.stopPropagation();
+		this.startX=parseInt(e.clientX);
+		this.startY=parseInt(e.clientY);
+
+		this.draggingIndex=undefined;
+		for(var i=0;i<this.divs.length;i++){
+			var d=this.divs[i];
+			var x=parseInt(d.div.style.left);
+			var y=parseInt(d.div.style.top);
+			if(this.startX>x && this.startX<x+d.w && this.startY>y && this.startY<y+d.h){
+				this.draggingIndex=i;
+				this.isDown=true;
+				break;
+			}
+		}
+	}
+
+	handleMouseUp(e){
+		e.preventDefault();
+		e.stopPropagation();
+		this.isDown=false;
+	}
+	
+	 handleMouseMove(e){
+		if(!this.isDown){return;}
+		e.preventDefault();
+		e.stopPropagation();
+		// get mouse position
+		let mouseX=parseInt(e.clientX);
+		let mouseY=parseInt(e.clientY);
+		// move the dragging div by the distance the mouse has moved
+		var dragging=this.divs[this.draggingIndex].div;
+		var dx=mouseX-this.startX;
+		var dy=mouseY-this.startY;
+		this.startX=mouseX;
+		this.startY=mouseY;
+		dragging.style.left=(parseInt(dragging.style.left)+dx)+'px';
+		dragging.style.top=(parseInt(dragging.style.top)+dy)+'px';
+	}
+
+	tema(){
+
+	}
+
+	adicionaLinha(){
+
+	}
+
+	getCoordenada(parametro){
+		let elementoPai   = document.getElementById(parametro[0])
+		let elementoFilho = document.getElementById(parametro[1])
+		
+		try {
+			if (elementoFilho != undefined) {
+			let x1     = parseInt(elementoPai.offsetLeft, 10)// + parseInt(elementoPai.outerWidth / 2, 10)
+			let y1     = parseInt(elementoPai.offsetTop, 10) //+ parseInt(elementoPai.outerHeight / 2, 10);
+			let x2     = parseInt(elementoFilho.offsetLeft, 10)// + parseInt(elementoFilho.outerWidth / 2, 10);
+			let y2     = parseInt(elementoFilho.offsetTop, 10) //+ parseInt(elementoFilho.outerHeight / 2, 10);
+			let height = this.getDistanciaEL(x2, y1, x2, y2);
+			let width  = this.getDistanciaEL(x1, y1, x2, y1);
+
+			this.posicionarConector(x1, y1, x2, y2, parametro[2], height, width);
+			}
+		} catch (e) {
+			console.log(e, parametro);
+		}
+	}
+	posicionarConector(x1, y1, x2, y2, linhaID, height, width) {
+		document.getElementById(linhaID);
+
+
+
+		console.log(document.getElementById(linhaID))
+
+
+
+
+
+
+
+		var width = width;
+		var xMeio = (x1 + x2) / 2
+		var linha = document.getElementById(linhaID)
+			// linha.classList    = ""
+			linha.style.width  = 500
+			linha.style.height =  16
+
+		if (y1 > y2) {
+				linha.style.top = (y1 - height)
+				linha.style.left = xMeio - (width / 2)
+				
+				if (x1 > x2) {
+					linha.classList.add("conector-bottom-left")
+				} else {
+					linha.classList.add("conector-bottom-right")
+				}
+			} else {
+				linha.style.top  = y1
+				linha.style.left = xMeio - (width / 2)
+				
+				if (x1 > x2) {
+					linha.classList.add("conector-top-left")
+				} else {
+					linha.classList.add("conector-top-right")
+				}
+			}
+	}
+
+	getDistanciaEL(x1, y1, x2, y2) {
+		return Math.sqrt(((x1 - x2) * (x1 - x2)) + ((y1 - y2) * (y1 - y2)));
+	}
+
+
+	addDiv(parametro) {
+		let $elDirecionamento = $("<div>");
+		let $elIntencao = $("<div>");
+
+		if (typeof parametro['direcionamento'] == 'object') {
+			$.each(parametro['direcionamento'], function (index, obj) {
+				$elDirecionamento.append($("<div>", { class: "lbl_direcionamento" }).append($("<div>", { class: "nodeTypeName bg-yellow-darker", style: "border-color: #c47d15!important;" }).append($("<span>", { class: "objName2", text: obj.titulo }))))
+			})
+		}
+
+		let $caixaIntencao = $("<div>", { class: "caixa-intecao " + parametro.tipo, id: parametro.id, style: "z-index:9999; position:absolute;" + parametro.position }).append(
+			$("<div>", { class: "caixa-intencao-titulo" }).append(
+				$("<div>", { class: "caixa-intencao-icone" }).append(
+					$("<i>", { class: "i-cogs" }),
+					$("<i>", { class: "i-plus-circle-2 green" }),
+					$("<i>", { class: "i-move" }),
+					$("<i>", { class: "i-filter-4" })
+				),
+				$("<span>", { class: "condicaoBot", text: parametro.label })
+			),
+			$("<div>", { class: "caixa-intencao-corpo" }).append(
+				$("<span>", { class: "intencao-titulo", text: parametro.titulo }),
+
+			)
+		)
+
+		if (parametro.acao != undefined) {
+			$.each(parametro.acao, function (index, el) {
+				$caixaIntencao.find(".caixa-intencao-corpo").append($("<div>", { class: "intencao-info", id: el.id }).append($("<span>", { class: "condicaoBot", text: index + 1 }), $("<span>", { class: "label-acao", text: el.titulo })))
+			})
+		}
+
+		document.getElementById("diagrama").appendChild($caixaIntencao.get(0));
+
+		this.divs.push({div:$caixaIntencao.get(0),w:100, h:100});
+	}
+
+	
+
+	createElement(type, attributes, w,h,bk,classname) {
+		var elemento = document.createElement(type);
+		for (var key in attributes) {
+		  if (key == "class") {
+			elemento.classList.add.apply(elemento.classList, attributes[key]);
+		  } else {
+			elemento[key] = attributes[key];
+		  }
+		}
+		
+		return elemento;
+	  }
+
+	iniciar(){
+		let intencao  = Object.values(this.load);
+		let	intencoes = Object.values(intencao[0]);
+
+		for(let i = 0; i < intencoes.length-1; i++){
+			this.createElement("div", { "id": "myId","class": ["batch1"],"name": "someName", style: intencoes[i].position}, 100, 75);
+			this.addDiv(intencoes[i])
+		}
+
+
+
+
+		setTimeout(() => {
+			diagrama.getCoordenada(["inicio", "sugestao", "teste"]);
+			diagrama.getCoordenada(["inicio", "sugestao", "teste1"]);
+			diagrama.getCoordenada(["xxxxxxx", "xxxx", "teste2"]);
+			diagrama.getCoordenada(["inicio", "pergunta_encerra_ramal", "teste3"])
+			diagrama.getCoordenada(["inicio", "xxxxxxx", "teste4"])
+			diagrama.getCoordenada(["pergunta_encerra_ramal", "fora_horario_atendimento", "linha_4"])
+			diagrama.getCoordenada(["sugestao", "pesquisa", "linha_5"])
+		}, 600);
+
+
+
+
+
+
+
+		
+	}
+
+}
+
+
+
+
+(function (opcao) {
+	let linhas = [];
+	let titulo, versao, intencao;
+
+
+	let metodos = {
+		addDiv: function (parametro) {
+			let $elDirecionamento = $("<div>");
+			let $elIntencao = $("<div>");
+
+			if (typeof parametro['direcionamento'] == 'object') {
+				$.each(parametro['direcionamento'], function (index, obj) {
+					$elDirecionamento.append($("<div>", { class: "lbl_direcionamento" }).append($("<div>", { class: "nodeTypeName bg-yellow-darker", style: "border-color: #c47d15!important;" }).append($("<span>", { class: "objName2", text: obj.titulo }))))
+				})
+			}
+
+			let $caixaIntencao = $("<div>", { class: "caixa-intecao " + parametro.tipo, id: parametro.id, style: "position:absolute;" + parametro.position }).append(
+				$("<div>", { class: "caixa-intencao-titulo" }).append(
+					$("<div>", { class: "caixa-intencao-icone" }).append(
+						$("<i>", { class: "i-cogs" }),
+						$("<i>", { class: "i-plus-circle-2 green" }),
+						$("<i>", { class: "i-move" }),
+						$("<i>", { class: "i-filter-4" })
+					),
+					$("<span>", { class: "condicaoBot", text: parametro.label })
+				),
+				$("<div>", { class: "caixa-intencao-corpo" }).append(
+					$("<span>", { class: "intencao-titulo", text: parametro.titulo }),
+
+				)
+			)
+
+			if (parametro.acao != undefined) {
+				$.each(parametro.acao, function (index, el) {
+					$caixaIntencao.find(".caixa-intencao-corpo").append($("<div>", { class: "intencao-info", id: el.id }).append($("<span>", { class: "condicaoBot", text: index + 1 }), $("<span>", { class: "label-acao", text: el.titulo })))
+				})
+			}
+
+			return $caixaIntencao
+		},
+
+		addLinha: function (param) {
+			return $("<div>", { class: "linha", id: param });
+		},
+
+		gravaCordenada: function (url, repre, bot_classe, nb, intencao) {
+			let request = new XMLHttpRequest()
+			request.open("POST", url, true)
+			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+			request.send("&representante=" + repre + "&bot_classe=" + bot_classe + "&nb=" + nb + "&acao=gravaCordenada&intencao=" + intencao.getAttribute('id') + "&position=" + intencao.getAttribute('style'))
+
+			request.onreadystatechange = function () {
+				if (request.readyState == 4 && request.status == 200) {
+					request.responseText;
+				}
+			}
+		},
+
+		carregaBOT(url, repre, bot_classe, nb) { // Gambiara resolver
+			request = new XMLHttpRequest();
+			request.open('POST', url, false);
+			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+			request.send("&acao=infoBot&representante=" + repre + "&bot_classe=" + bot_classe + "&nb=" + nb);
+
+			request.onreadystatechange = () => {
+				if (request.readyState == 4) {
+					if (request.status == 200) {
+						return JSON.parse(request.responseText)
+					} else {
+						// console.log(request.responseText);
+						reject(request.responseText);
+					}
+				}
+			}
+			return JSON.parse(request.responseText);
+		},
+
+		getDistanciaEL: function (x1, y1, x2, y2) {
+			return Math.sqrt(((x1 - x2) * (x1 - x2)) + ((y1 - y2) * (y1 - y2)));
+		},
+
+		getCoordenadas: function (parametro) {
+			try {
+				var pai = $("#" + parametro[0]).offset();
+				var filho = $("#" + parametro[1]).offset();
+
+				if (filho != undefined) {
+					var x1 = parseInt(pai.left, 10) + parseInt($("#" + parametro[0]).outerWidth() / 2, 10)
+					var x2 = parseInt(filho.left) + parseInt($("#" + parametro[1]).outerWidth() / 2, 10)
+
+					var y1 = parseInt(pai.top, 10) //+ parseInt($("#"+parametro[0]).outerHeight() / 2, 10)
+					var y2 = parseInt(filho.top)   // + parseInt($("#"+parametro[1]).outerHeight() / 2, 10)
+
+					var height = metodos.getDistanciaEL(x2, y1, x2, y2);
+					var width = metodos.getDistanciaEL(x1, y1, x2, y1);
+
+					metodos.posicionarConector(x1, y1, x2, y2, parametro[2], height, width);
+
+				}
+			} catch (e) {
+				// console.log(e, parametro);
+			}
+		},
+
+		posicionarConector: function (x1, y1, x2, y2, linhaID, height, width) {
+			var xMeio = (x1 + x2) / 2
+			var linha = document.getElementById(linhaID)
+			linha.classList = ""
+			linha.style.width = width
+			linha.style.height = height
+
+			if (y1 > y2) {
+				linha.style.top = (y1 - height)
+				linha.style.left = xMeio - (width / 2)
+
+				if (x1 > x2) {
+					linha.classList.add("conector-bottom-left")
+				} else {
+					linha.classList.add("conector-bottom-right")
+				}
+			} else {
+				linha.style.top = y1
+				linha.style.left = xMeio - (width / 2)
+
+				if (x1 > x2) {
+					linha.classList.add("conector-top-left")
+				} else {
+					linha.classList.add("conector-top-right")
+				}
+			}
+		},
+
+
+		carregaObjeto: function (parametro) {
+			return parametro;
+		},
+	};
+
+	$.fn.arvoreDecisao = function (parametro) {
+		let botParam = parametro;
+		let objBOT = metodos.carregaBOT(botParam.URL, botParam.representante, botParam.bot_classe, botParam.nb, this)
+		let parametros = metodos.carregaObjeto(objBOT);
+		let conector = parametros["conector"];
+
+
+
+
+
+		$.each(parametros['intencao'], function (index, el) {
+			// $("#montaDiagrama").append(metodos.addDiv(this))
+		})
+
+		$.each($(".caixa-intecao"), function (index, el) {
+			$("#montaDiagrama").append(metodos.addLinha("linha_" + index))
+		})
+
+
+
+
+
+		$(".caixa-intecao").draggable({
+			containment: "parent",
+			handle: ".i-move",
+			drag: function () {
+				metodos.getCoordenadas(["inicio", "sugestao", "linha_0"])
+				metodos.getCoordenadas(["xxxxxxx", "xxxx", "linha_1"])
+				metodos.getCoordenadas(["inicio", "pergunta_encerra_ramal", "linha_2"])
+				metodos.getCoordenadas(["inicio", "xxxxxxx", "linha_3"])
+				metodos.getCoordenadas(["pergunta_encerra_ramal", "fora_horario_atendimento", "linha_4"])
+				metodos.getCoordenadas(["sugestao", "pesquisa", "linha_5"])
+			},
+
+			stop: function () {
+				metodos.gravaCordenada(botParam.URL, botParam.representante, botParam.bot_classe, botParam.nb, this)
+			}
+		});
+	};
+})(jQuery);
