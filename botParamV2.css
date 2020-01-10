@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#titulo {
+    z-index: 9;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#diagramaV2 {
+    position: absolute;
+    height: 90vh;
+    width: 100vw;
+    background: #fff;
+    /* overflow: hidden; */
+}
+
+.menu-direcionamento {
+    position: fixed;
+    background: #f2f3f5;
+    height: 93vh;
+    width: 0;
+    right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.menu-direcionamento a {
+    padding: 8px 8px 8px 32px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    z-index: 999999999;
+}
+
+.menu-direcionamento a:hover {
+    color: #f1f1f1;
+}
+
+.menu-direcionamento .closebtn {
+    float: right;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    z-index: 99;
+}
+
+#montaDiagrama {
+    z-index: 2;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+.divSideLeft {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align: center;
+}
+
+.divSideLeft a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.divSideLeft a:hover {
+    color: #f1f1f1;
+}
+
+.divSideLeft .closebtn {
+    float: right;
+    font-size: 36px;
+    margin-left: 50px;
+    z-index: 99;
+}
+
+@media screen and (max-height: 450px) {
+    .divSideLeft {
+        padding-top: 15px;
+    }
+    .divSideLeft a {
+        font-size: 18px;
+    }
+    .divSideRight {
+        padding-top: 15px;
+    }
+    .divSideRight a {
+        font-size: 18px;
+    }
+}
+
+.prioridade {
+    z-index: 5;
+}
+
+.batch1 {
+    z-index: 999999;
+    width: 100px;
+    height: 100px;
+    background-color: #000;
+}

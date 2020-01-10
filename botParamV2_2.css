@@ -1,0 +1,364 @@
+.info-bot {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#n_bot {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.intergrall-color {
+    color: #f55;
+    position: relative;
+    font-weight: 600;
+}
+
+#menu-grupo {
+    position: absolute;
+    margin: 0 auto;
+    width: 20vw;
+    min-height: 10vh;
+    right: 10;
+    top: 50px;
+    background-color: #FFF;
+    box-shadow: 0 0 4px grey;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    z-index: 9;
+}
+
+#posiciona {
+    position: absolute;
+    margin: 0 auto;
+    width: 50vw;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    background-color: #FFF;
+    box-shadow: 0 0 4px grey;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    z-index: 9;
+    display: none;
+}
+
+#fechar {
+    position: absolute;
+    margin: 5px;
+    font-size: 12px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.div-select {
+    overflow: hidden;
+}
+
+.div-select select {
+    background-position: 205px center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-indent: 0.01px;
+    border: 0;
+    text-overflow: "";
+    select::-ms-expand {
+        display: none;
+    }
+}
+
+.div-select select:focus {
+    -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0), 0 0 0px !important;
+    -moz-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.002), 0 0 0px !important;
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0), 0 0 0px !important;
+}
+
+.conector-bottom-right {
+    position: absolute;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    border-bottom-right-radius: 5px;
+}
+
+.conector-bottom-left {
+    position: absolute;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-bottom-left-radius: 5px;
+}
+
+.conector-top-right {
+    position: absolute;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-top-right-radius: 5px;
+}
+
+.conector-top-left {
+    position: absolute;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-top-left-radius: 5px;
+}
+
+.caixa-intecao {
+    position: absolute;
+    width: 200px !important;
+    transition: opacity 1s;
+    padding: 5px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
+    display: table;
+    background: white;
+    border-radius: 12px;
+    z-index: 1
+}
+
+.caixa-intecao>.caixa-intencao-titulo>.condicaoBot {
+    vertical-align: top;
+    font-size: 10px;
+    font-weight: 600;
+    overflow: hidden;
+    line-height: 15px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+.caixa-intencao-icone>i {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.caixa-intecao>.caixa-intencao-titulo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.intencao-titulo {
+    vertical-align: top;
+    font-size: 10px;
+    font-weight: 600;
+    overflow: hidden;
+    line-height: 15px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+.caixa-intencao-corpo {
+    padding: 0;
+    width: 90%;
+}
+
+.caixa-intencao-corpo .intencao-titulo {
+    display: block;
+    width: 100%;
+    padding: 10px 20px 0 10px;
+    max-width: 199px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #26344a;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: white;
+    margin-bottom: 5px;
+}
+
+.intencao-info {
+    padding: 0 5px 0 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 10px;
+    letter-spacing: 0.2px;
+}
+
+.intencao-info>.condicaoBot {
+    padding: 0 5px 0 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.intencao-info>.condicaoBot {
+    vertical-align: top;
+    margin-bottom: 5px;
+    display: inline-block;
+    background: #00acac!important;
+    font-size: 10px;
+    font-weight: 600;
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.caixa-intecao.encerrar>.caixa-intencao-titulo {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.caixa-intecao.encerrar {
+    border: 1px solid;
+    border-color: red;
+    border-radius: 50px !important;
+    width: 150px !important;
+}
+
+.caixa-intecao.encerrar>.caixa-intencao-titulo>.condicaoBot {
+    background-color: red;
+    color: #fff;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.caixa-intecao.iniciar>.caixa-intencao-titulo {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.caixa-intecao.iniciar {
+    border: 1px solid;
+    border-color: rgb(58, 185, 98);
+    border-radius: 25px !important;
+}
+
+.caixa-intecao.iniciar>.caixa-intencao-titulo>.condicaoBot {
+    background-color: rgb(58, 185, 98);
+    color: #fff;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.caixa-intecao.aguarda {
+    border: 1px solid;
+    border-color: rgb(0, 126, 255);
+}
+
+.caixa-intecao.aguarda>.caixa-intencao-titulo>.condicaoBot {
+    background-color: rgb(0, 126, 255);
+    color: #fff;
+}
+
+.caixa-intecao.temporizador {
+    border: 1px solid;
+    border-color: rgb(87, 24, 127);
+}
+
+.caixa-intecao.temporizador>.caixa-intencao-titulo>.condicaoBot {
+    background-color: rgb(87, 24, 127);
+    color: #fff;
+}
+
+.caixa-intecao.transferir {
+    border: 1px solid;
+    border-color: rgb(234, 167, 36);
+}
+
+.caixa-intecao.transferir>.caixa-intencao-titulo>.condicaoBot {
+    background-color: rgb(234, 167, 36);
+    color: #fff;
+}
+
+.caixa-intecao.rotina {
+    border: 1px solid;
+    border-color: rgb(74, 74, 74);
+}
+
+.caixa-intecao.rotina>.caixa-intencao-titulo>.condicaoBot {
+    background-color: rgb(74, 74, 74);
+    color: #fff;
+}
+
+.label-acao {
+    padding: 0 5px 0 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.list-notificacao {
+    min-width: 300px;
+    background: #ffffff;
+}
+
+.list-notificacao li {
+    /*border-bottom : 1px #d8d8d8 solid;*/
+    text-align: justify;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.list-notificacao li:hover {
+    background: #f1eeee;
+}
+
+.list-notificacao li:hover .exclusaoNotificacao {
+    display: block;
+}
+
+.list-notificacao li p {
+    color: black;
+    width: 305px;
+}
+
+.list-notificacao li .exclusaoNotificacao {
+    width: 25px;
+    min-height: 40px;
+    position: absolute;
+    right: 0;
+    display: none;
+}
+
+.badgeAlert {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: center;
+    background-color: #d9534f;
+    border-radius: 10px;
+    position: absolute;
+    margin-top: -10px;
+    margin-left: -10px
+}
+
+.badgeInfo {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: center;
+    background-color: #f55;
+    border-radius: 10px;
+}
+
+.btn_chat_lancher span.open_me {
+    background: url(../callcenter/imagens/v12_chat_icon_blue.svg) no-repeat center;
+}
